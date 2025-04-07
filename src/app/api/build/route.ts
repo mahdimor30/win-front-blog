@@ -6,7 +6,7 @@ export async function POST(request: Request) {
   if (request.headers.get("x-api-key") !== env.REVALIDATE_SECRET) {
     return Response.json("Forbidden", { status: 403 });
   }
-  revalidatePath("/");
+  revalidatePath("/blogs");
   return Response.json(
     {
       message: "revalidated",
