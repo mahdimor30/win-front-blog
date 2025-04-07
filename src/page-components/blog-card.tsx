@@ -33,7 +33,7 @@ export function BlogCard({ blog }: { blog: DataArticles }) {
               </Link>
             ))}
             <span className="text-xs text-muted-foreground">
-              {formatDate(blog?.updatedAt || "")}
+              {formatDate(blog?.updatedAt ?? "")}
             </span>
           </div>
           <Link href={`/blogs/${blog?.slug}`}>
@@ -50,9 +50,9 @@ export function BlogCard({ blog }: { blog: DataArticles }) {
         <div className="flex justify-between items-center w-full">
           <div className="flex items-center gap-2">
             <div className="rounded-full bg-primary/10 w-6 h-6 flex items-center justify-center text-xs">
-              {blog?.authorsBio?.name?.charAt(0)}
+              {blog?.createdBy?.firstname?.charAt(0)}
             </div>
-            <span className="text-xs">{blog?.authorsBio?.name}</span>
+            <span className="text-xs">{blog?.createdBy?.lastname}</span>
           </div>
           <Link href={`/blogs/${blog?.slug}`} className="text-xs text-primary hover:underline">
             ادامه مطلب

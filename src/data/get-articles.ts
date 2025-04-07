@@ -5,7 +5,7 @@ export const getAllArticle = async () => {
     const response = await client.GET("/articles", {
       params: {
         query: {
-          populate: ["cover", "categories"],
+          populate: ["cover", "categories",'createdBy'],
         },
       },
     });

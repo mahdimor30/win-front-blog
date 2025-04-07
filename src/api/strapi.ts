@@ -3518,7 +3518,7 @@ export interface operations {
         /** @description Fields to return (ex: title,author) */
         fields?: string;
         /** @description Relations to return */
-        populate?: string;
+        populate?: string[];
         /** @description Filters to apply */
         filters?: Record<string, unknown>;
         /** @description Locale to apply */
