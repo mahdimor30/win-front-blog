@@ -1,3 +1,4 @@
+/* eslint-disable n/no-process-env */
 import { createEnv } from "@t3-oss/env-nextjs";
 import { z } from "zod";
 
@@ -8,6 +9,7 @@ export const env = createEnv({
    */
   server: {
     NODE_ENV: z.enum(["development", "test", "production"]),
+    REVALIDATE_SECRET: z.string(),
   },
 
   /**
@@ -16,6 +18,10 @@ export const env = createEnv({
    * `NEXT_PUBLIC_`.
    */
   client: {
+    NEXT_PUBLIC_STRAPI_API_TOKEN: z.string(),
+    NEXT_PUBLIC_PAGE_LIMIT: z.string(),
+    NEXT_PUBLIC_STRAPI_API_URL: z.string(),
+   
     // NEXT_PUBLIC_CLIENTVAR: z.string(),
   },
 
@@ -25,6 +31,10 @@ export const env = createEnv({
    */
   runtimeEnv: {
     NODE_ENV: process.env.NODE_ENV,
+    REVALIDATE_SECRET: process.env.REVALIDATE_SECRET,
+    NEXT_PUBLIC_STRAPI_API_TOKEN: process.env.NEXT_PUBLIC_STRAPI_API_TOKEN,
+    NEXT_PUBLIC_PAGE_LIMIT: process.env.NEXT_PUBLIC_PAGE_LIMIT,
+    NEXT_PUBLIC_STRAPI_API_URL: process.env.NEXT_PUBLIC_STRAPI_API_URL,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
