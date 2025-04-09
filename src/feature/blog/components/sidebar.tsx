@@ -3,15 +3,12 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getAllCategories } from "@/data/categories";
-import { getRecentBlogs } from "@/data/get-articles";
+import { getRecentArticles } from "@/feature/blog/api/articles";
 import { formatDate } from "@/lib/utils";
 
-export async function Sidebar() {
-  const recentBlogs = await getRecentBlogs();
+export default async function Sidebar() {
+  const recentBlogs = await getRecentArticles();
   const categories = await getAllCategories();
-  // console.log(categories?.data);
-  
-  // const tags = getAllTags()
 
   return (
     <div className="space-y-6">
@@ -23,10 +20,15 @@ export async function Sidebar() {
           <div className="space-y-4">
             {recentBlogs?.data?.map((blog) => (
               <div key={blog.slug} className="flex flex-col">
-                <Link href={`/blogs/${blog.slug}`} className="font-medium hover:text-primary">
+                <Link
+                  href={`/blogs/${blog.slug}`}
+                  className="font-medium hover:text-primary"
+                >
                   {blog.title}
                 </Link>
-                <span className="text-xs text-muted-foreground">{formatDate(blog.createdAt ?? "")}</span>
+                <span className="text-xs text-muted-foreground">
+                  {formatDate(blog.createdAt ?? "")}
+                </span>
               </div>
             ))}
           </div>
@@ -42,7 +44,7 @@ export async function Sidebar() {
             {categories?.data?.map((category) => (
               <Link key={category.id} href={`/blogs/category/${category.slug}`}>
                 <Badge variant="secondary" className="cursor-pointer">
-                 {category.name}
+                  {category.name}
                 </Badge>
               </Link>
             ))}
@@ -69,4 +71,3 @@ export async function Sidebar() {
     </div>
   );
 }
-

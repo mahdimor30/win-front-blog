@@ -6,9 +6,21 @@ import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
 const config = {
-    eslint:{
-        ignoreDuringBuilds: true,
-    }
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
+  images: {
+    remotePatterns: [
+      {
+        hostname: "win-back-blog-production.up.railway.app",
+      },
+      {
+        hostname:'localhost',
+        port:'1337'
+      }
+    ],
+  },
 };
 
 export default config;
