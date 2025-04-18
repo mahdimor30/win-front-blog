@@ -7,6 +7,7 @@ import { getStrapiMedia } from "@/utils/api-helpers";
 
 type MediaProps = components["schemas"]["SharedMediaComponent"];
 
+
 export default function Media({file }: MediaProps ) {
   const imgUrl = file?.url ? getStrapiMedia(file.url) : undefined;
   return (
