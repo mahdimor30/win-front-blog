@@ -1,8 +1,9 @@
 import Image from "next/image";
 
 import { type components } from "@/api/strapi";
+import { getStrapiMedia } from "@/utils/api-helpers";
 
-import { getStrapiMedia } from "../utils/api-helpers";
+
 
 type MediaProps = components["schemas"]["SharedMediaComponent"];
 

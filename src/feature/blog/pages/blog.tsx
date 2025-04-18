@@ -1,12 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { postRenderer } from "@/app/_[lang]/utils/post-renderer";
 import { Badge } from "@/components/ui/badge";
 import { getArticleBySlug } from "@/feature/blog/api/articles";
 import { formatDate } from "@/lib/utils";
 import { getStrapiMedia } from "@/utils/api-helpers";
+
+import Sidebar from "../components/sidebar";
+import { postRenderer } from "../utils/post-renderer";
 
 async function Blog({ slug }: { slug: string }) {
   const data = await getArticleBySlug(slug);
@@ -19,7 +22,7 @@ async function Blog({ slug }: { slug: string }) {
 
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-4">
-      {/* <Sidebar /> */}
+      <Sidebar />
       <div className="lg:col-span-3">
         <article className="prose prose-blue dark:prose-invert max-w-none">
           <h1 className="mb-4 text-3xl font-bold">{blog?.title}</h1>
@@ -36,15 +39,15 @@ async function Blog({ slug }: { slug: string }) {
           </div>
           {/* TODO: convert Image  */}
           {blog.cover && (
-            <img
+            <Image
               src={getStrapiMedia(blog.cover.url) ?? "/placeholder.svg"}
-              alt={blog.title}
+              alt={blog.title ?? "placeholder"}
               className="mb-6 h-[300px] w-full rounded-lg object-cover"
             />
           )}
           {blog.blocks &&
             blog.blocks?.length !== 0 &&
-            blog?.blocks.map((section: any, index: number) =>
+            blog?.blocks.map((section, index: number) =>
               postRenderer(section, index),
             )}
 
