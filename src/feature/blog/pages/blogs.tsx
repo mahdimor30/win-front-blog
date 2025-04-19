@@ -1,6 +1,6 @@
 import { getAllArticle } from "@/feature/blog/api/articles";
 import BlogCard from "@/feature/blog/components/blog-card";
-import  Sidebar  from "@/feature/blog/components/sidebar";
+import  Sidebar  from "@/feature/blog/components/shared-components/sidebar";
 
 export default async function Blogs() {
   const articles = await getAllArticle();

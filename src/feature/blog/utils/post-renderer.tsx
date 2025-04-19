@@ -1,10 +1,11 @@
 import { type components } from "@/api/strapi";
 
-import Slideshow from "../components/image-slider";
-import Media from "../components/media";
-import Quote from "../components/quote";
-import RichText from "../components/rich-text";
-import VideoEmbed from "../components/video-embed";
+import Slideshow from "../components/shared-components/image-slider";
+import Media from "../components/shared-components/media";
+import Quote from "../components/shared-components/quote";
+import RichText from "../components/shared-components/rich-text";
+import VideoEmbed from "../components/shared-components/video-embed";
+
 
 type Section =
   | components["schemas"]["SharedMediaComponent"]

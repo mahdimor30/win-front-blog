@@ -1,3 +1,5 @@
+
+
 import { type components } from "@/api/strapi";
 
 type QuoteProps = components["schemas"]["SharedQuoteComponent"];

@@ -8,7 +8,7 @@ import { getArticleBySlug } from "@/feature/blog/api/articles";
 import { formatDate } from "@/lib/utils";
 import { getStrapiMedia } from "@/utils/api-helpers";
 
-import Sidebar from "../components/sidebar";
+import Sidebar from "../components/shared-components/sidebar";
 import { postRenderer } from "../utils/post-renderer";
 
 async function Blog({ slug }: { slug: string }) {
