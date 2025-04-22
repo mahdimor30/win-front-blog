@@ -4,6 +4,8 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
+import Logo from "./logo";
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -16,18 +18,12 @@ export default function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <span className="text-2xl font-semibold tracking-wider text-gray-800">
-                WIN<span className="text-gray-500">a</span>TALENT
-              </span>
-            </Link>
-          </div>
+          <Logo />
 
           {/* Desktop Navigation */}
           <nav className="hidden items-center space-x-8 space-x-reverse md:flex">
             <Link
-              href="https://winatalent.com"
+              href="/blogs"
               className="text-gray-700 transition-colors duration-200 hover:text-primary"
             >
               خانه
@@ -36,22 +32,15 @@ export default function Header() {
               href="/byo"
               className="text-gray-700 transition-colors duration-200 hover:text-primary"
             >
-              BYO
+              سرویس BYO
             </Link>
+
             <Link
-              href="/about"
+              href="/"
               className="text-gray-700 transition-colors duration-200 hover:text-primary"
             >
-              درباره ما
+              قوانین پرداخت WINaTALENT
             </Link>
-            <Link
-              href="/payment-terms"
-              className="text-gray-700 transition-colors duration-200 hover:text-primary"
-            >
-              شرایط پرداخت
-            </Link>
-          
-        
           </nav>
 
           {/* Search Bar */}

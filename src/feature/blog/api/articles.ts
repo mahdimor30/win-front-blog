@@ -2,12 +2,23 @@ import { client } from "@/api";
 
 
 
+
+
+
 export const getAllArticle = async () => {
   try {
     const response = await client.GET("/articles", {
       params: {
         query: {
-          populate: ["cover", "categories", "createdBy"],
+          populate: {
+            cover: true,
+            categories: true,
+            author:{
+              populate: {
+                admin_user:true
+              }
+            }
+          },
         },
       },
     });
@@ -57,7 +68,7 @@ export const getArticleBySlug = async (slug: string) => {
           slug,
         },
         query: {
-          populate: ["createdBy", "cover", "blocks", "categories"],
+          populate: ["createdBy", "cover", "blocks", "categories","author"],
         },
       },
     });

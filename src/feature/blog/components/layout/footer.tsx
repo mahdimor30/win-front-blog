@@ -1,21 +1,14 @@
 import Link from "next/link";
 
+import Logo from "./logo";
+
 export default function Footer() {
   return (
-    <footer className="border-t py-8">
+    <footer className="border-t py-8 mt-10">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <div>
-            {/* لوگو و توضیحات */}
-            <div className="mb-4 flex items-center">
-              <div className="rounded-md bg-primary px-3 py-2 text-xl font-bold text-primary-foreground">
-                وبلاگ
-              </div>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              به اشتراک گذاری بینش‌ها، داستان‌ها و دانش در موضوعات مختلف.
-            </p>
-          </div>
+        <div className=" flex justify-around">
+        
+          <Logo/>
 
           <div>
             {/* لینک‌های اصلی */}

@@ -8,6 +8,8 @@ import { formatDate } from "@/lib/utils";
 import { getStrapiMedia } from "@/utils/api-helpers";
 
 export default function BlogCard({ blog }: { blog: DataArticles }) {
+  console.log(blog?.author,'////////////////////////');
+  
   return (
     <Card className="flex h-full flex-col overflow-hidden">
       {blog?.cover && (
@@ -50,9 +52,9 @@ export default function BlogCard({ blog }: { blog: DataArticles }) {
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs">
-              {blog?.createdBy?.firstname?.charAt(0)}
+              {blog?.author?.name?.charAt(0)}
             </div>
-            <span className="text-xs">{blog?.createdBy?.lastname}</span>
+            <span className="text-xs">{blog?.author?.name}</span>
           </div>
           <Link
             href={`/blogs/${blog?.slug}`}
